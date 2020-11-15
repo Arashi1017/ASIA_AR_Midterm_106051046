@@ -17,37 +17,79 @@ public class GameManager : MonoBehaviour
     public Animator aniRed;
     [Header("藍龍動畫元件")]
     public Animator aniBlue;
+    [Header("按鈕")]
+    public Toggle walk;
+    public Button attack;
+    public Button fly;
+    public Button land;
+    public Button flame;
 
-    public bool walk;
 
+    public string ClipName;
+    public AnimatorClipInfo[] ClipInfo;
 
     
-    
-
-
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         RedDragon.Rotate(0, joystick.Horizontal * turn, 0);
         BlueDragon.Rotate(0, joystick.Horizontal * turn, 0);
 
         RedDragon.localScale += new Vector3(1, 1, 1) * joystick.Vertical * size;
+        RedDragon.localScale = new Vector3(1, 1, 1) * Mathf.Clamp(RedDragon.localScale.x, 0.1f, 1.5f);
 
-    }
+        BlueDragon.localScale += new Vector3(1, 1, 1) * joystick.Vertical * size;
+        BlueDragon.localScale = new Vector3(1, 1, 1) * Mathf.Clamp(BlueDragon.localScale.x, 0.1f, 1.5f);
 
-    public void WalkToggle()
-    {
-        if (gameObject.GetComponent<Toggle>().isOn == true)
+        AnimatorStateInfo R_State = aniRed.GetCurrentAnimatorStateInfo(0);
+        AnimatorStateInfo B_State = aniBlue.GetCurrentAnimatorStateInfo(0);
+
+        if (R_State.nameHash==Animator.StringToHash("Base Layer.R_飛行"))
         {
-            walk = true;
-        }else
-            walk = false;
+            print("fly");
+            flame.interactable = true;
+            attack.interactable = false;
+        }
+        else
+        {
+            flame.interactable = false;
+            attack.interactable = true;
+        }
+
+        if (B_State.nameHash == Animator.StringToHash("Base Layer.B_飛行"))
+        {
+            print("fly");
+            flame.interactable = true;
+            attack.interactable = false;
+        }
+        else
+        {
+            flame.interactable = false;
+            attack.interactable = true;
+        }
 
     }
+
+    public void Walk()
+    {
+        if (walk.isOn == true)
+        {
+            print("on");
+            aniRed.SetBool("走路開關", true);
+            aniBlue.SetBool("走路開關", true);
+            attack.interactable = false;
+            fly.interactable = false;
+            land.interactable = false;
+        }
+        else
+        {
+            aniRed.SetBool("走路開關", false);
+            aniBlue.SetBool("走路開關", false);
+            attack.interactable = true;
+            fly.interactable = true;
+            land.interactable = true;
+        }
+    }
+
 
     public void Attack()
     {

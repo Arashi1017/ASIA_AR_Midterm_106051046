@@ -400,13 +400,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186773937}
   m_CullTransparentMesh: 0
---- !u!43 &210941558
+--- !u!43 &304241907
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh13816
+  m_Name: ImageTargetMesh13812
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -563,13 +563,13 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &481360087
+--- !u!43 &472283095
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh13702
+  m_Name: ImageTargetMesh13714
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1006,6 +1006,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!21 &741962410
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'RMaterial
+
+    13724'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 27e788eb39fd4773821a36b54f5f59ac, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &783856392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1062,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783856392}
-  m_Mesh: {fileID: 481360087}
+  m_Mesh: {fileID: 472283095}
 --- !u!23 &783856394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1053,7 +1081,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1958970576}
+  - {fileID: 741962410}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1093,7 +1121,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783856392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
@@ -2040,7 +2068,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406919494}
-  m_Mesh: {fileID: 210941558}
+  m_Mesh: {fileID: 304241907}
 --- !u!23 &1406919496
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2059,7 +2087,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1654087136}
+  - {fileID: 1814964047}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2099,7 +2127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406919494}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
@@ -2249,7 +2277,12 @@ MonoBehaviour:
   size: 0.3
   aniRed: {fileID: 2079207268}
   aniBlue: {fileID: 960748087}
-  walk: 0
+  walk: {fileID: 1639238839}
+  attack: {fileID: 1278807230}
+  fly: {fileID: 849465724}
+  land: {fileID: 790530068}
+  flame: {fileID: 103639648}
+  ClipName: 
 --- !u!4 &1633166300
 Transform:
   m_ObjectHideFlags: 0
@@ -2274,6 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639238838}
   - component: {fileID: 1639238839}
+  - component: {fileID: 1639238840}
   m_Layer: 5
   m_Name: "\u8D70\u8DEF\u958B\u95DC"
   m_TagString: Untagged
@@ -2349,7 +2383,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1633166299}
-        m_MethodName: WalkToggle
+        m_MethodName: Walk
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2360,7 +2394,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
---- !u!21 &1654087136
+--- !u!114 &1639238840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639238837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a8792248d6ed9448b052d3877ca537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!21 &1814964047
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -2369,7 +2415,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: 'BMaterial
 
-    13826'
+    13822'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -2382,7 +2428,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 205c3393eca849ec8caf0c23c00a1496, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3316c7231a2b4c3c9f38333e19976d65, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2535,34 +2581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &1958970576
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'RMaterial
-
-    13712'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 49abb263089740b493e5c7edc116e647, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &2021641455
 PrefabInstance:
   m_ObjectHideFlags: 0
